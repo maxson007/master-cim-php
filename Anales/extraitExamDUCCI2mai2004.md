@@ -1,4 +1,4 @@
-#Extrait d’un examen du Ducci 2, Mai 2004
+# Extrait d’un examen du Ducci 2, Mai 2004
 
 ### 1- Code HTML du formulaire
 
@@ -12,9 +12,9 @@
     <button type="submit">Signer</button>
 </form>
 ```
-Le fichier peut se nomme `signature-livre-dor.php`
+Le fichier peut se nommer `signature-livre-dor.php`
 
-Il faut le placer à la racine d'un serveur web apache
+Il faut le placer à la racine d'un serveur web
 
 ### 2. Expliquez ce que sont les champs de cette table.
 
@@ -28,7 +28,8 @@ primary key (id) );
 ```
  
 * Le champ `pseudo` est une chaine de 20 caractères au maximum. 
-Il permet de stocker le pseudo de l'utilisateur qui a saissie un message dans le livre d'or.
+Il permet de stocker le pseudo de l'internaute qui saissie un message
+dans le livre d'or.
 
 * Le champ `texte` est un chaine de caractères de type `text`. 
 Le type _**text**_ permet de stocker de longue chaine jusqu'à 2^16 caractères.
@@ -37,7 +38,8 @@ Le type _**text**_ permet de stocker de longue chaine jusqu'à 2^16 caractères.
 Il permet de stocker la date d'écriture du message en base de donnée.
 
 * Le champ `id` est la clé primaire.
-Elle s'auto-incrémente pour avoir un identifiant unique pour chaque message dans le livre 
+Elle s'auto-incrémente pour avoir un identifiant unique pour 
+chaque message dans le livre 
 
 ### 3. Rajoutez en début du fichier de la question 1 la section PHP permettant la connexion au serveur et la sélection de la base de données appropriée.
 ```php
