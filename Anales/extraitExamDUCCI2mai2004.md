@@ -83,6 +83,7 @@ le script de connexion et de sélection de la base de données (En tête de page
 ```sql
 INSERT INTO livre(pseudo,texte,quand) VALUES('pseudo', 'text', 'NOW()');
 ```
+Le script php d'insertion
 ```php
 <?php
 $mysqliObject=mysqli_connect("localhost", "admin", "secret");
