@@ -14,7 +14,7 @@
         echo "<tr>\n";
         for ($j = 0; $j < 16; $j++) {
             $couleur = dechex($j) . dechex($j) . dechex($i) . dechex($i) . dechex($k) . dechex($k);
-            echo "<td BGCOLOR='" . $couleur . "'> &nbsp;&nbsp;&nbsp;&nbsp;</td>\n";
+            echo "<td BGCOLOR='" . $couleur . "'> &nbsp;&nbsp;&nbsp;&nbsp;</td> \n";
         }
         echo "</tr>\n";
     }

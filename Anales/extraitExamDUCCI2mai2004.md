@@ -58,14 +58,15 @@ mysqli_select_db($mysqliObject,"dor");
 
 ```php
 <?php
-$sql="SELECT * FROM livre ORDER BY quand DESC";
-$requete=mysqli_query($mysqliObject,$sql);
-$resultat = mysqli_fetch_array($requete);
-echo "<hr>";
-while ($resultat){
-echo sprintf("%s a écrit le %s : <br/>",$resultat['pseudo'],$resultat['date'] );
-echo $resultat['text'];
-}
+    $sql = "SELECT * FROM livre ORDER BY id DESC";
+    $requete = mysqli_query($mysqliObject, $sql);
+    echo "<hr>\n";
+    while ($resultat = mysqli_fetch_array($requete)) {
+        echo sprintf("%s a écrit le %s : <br/>", $resultat['pseudo'], $resultat['quand']);
+        echo $resultat['texte'];
+        echo "<hr>";
+    }
+    mysqli_close($mysqliObject);
 ?>
 ```
 
@@ -86,18 +87,18 @@ INSERT INTO livre(pseudo,texte,quand) VALUES('pseudo', 'text', 'NOW()');
 Le script php d'insertion
 ```php
 <?php
-$mysqliObject=mysqli_connect("localhost", "admin", "secret");
-mysqli_select_db($mysqliObject,"dor");
-if(
-(isset($_POST['pseudo']) && isset($_POST['text'])) &&
-(!empty($_POST['pseudo']) && !empty($_POST['text']))
-){
-$pseudo=$_POST['pseudo'];
-$text=$_POST['texte'];
-$sql="INSERT INTO livre(pseudo,texte,quand) VALUES('$pseudo', '$text', NOW())";
-$requete=mysqli_query($mysqliObject,$sql);
-mysqli_stmt_execute($requete);
+$mysqliObject = mysqli_connect($_ENV['DATABASE_HOST'] ?? "localhost", $_ENV['DATABASE_USER'] ?? "admin", $_ENV['DATABASE_PWD'] ?? "secret");
+mysqli_select_db($mysqliObject, $_ENV['DATABASE_DBNAME'] ?? "dor");
+$id = 0;
+if (
+    (isset($_POST['pseudo']) && isset($_POST['texte'])) &&
+    (!empty($_POST['pseudo']) && !empty($_POST['texte']))
+) {
+    $pseudo = $_POST['pseudo'];
+    $text = $_POST['texte'];
+    $sql = "INSERT INTO livre(pseudo,texte,quand) VALUES('$pseudo', '$text', NOW())";
+    mysqli_query($mysqliObject, $sql);
+    $id = mysqli_insert_id($mysqliObject);
 }
-
 ?>
 ```
