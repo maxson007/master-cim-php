@@ -8,7 +8,7 @@
     <input type="text" name="pseudo" id="pseudo">
     <br>
     <label for="text"> Texte : </label>
-    <textarea name="texte" id="text" cols="10" rows="5"></textarea>
+    <textarea name="texte" id="text" rows="5"></textarea>
     <button type="submit">Signer</button>
 </form>
 ```
