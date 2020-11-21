@@ -1,6 +1,7 @@
 {
     "require": {
         "symfony/dotenv": "^5.1",
-      "ext-mysqli": "*"
+      "ext-mysqli": "*",
+      "ext-gd": "*"
     }
 }
