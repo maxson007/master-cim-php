@@ -24,10 +24,10 @@ $ville= isset($_POST['ville'])?$_POST['ville']: null;
 </header>
 <div class="container">
     <div class="align-self-center mr-3">
-    <form class="form-inline mr-auto" method="post">
+    <form class="form-inline mr-auto" method="post" name="myform">
         <div class="form-group m-2">
             <label for="exampleFormControlSelect1" class="m-2">Choisir une ville: </label>
-            <select class="form-control" id="exampleFormControlSelect1" name="ville">
+            <select class="form-control" id="exampleFormControlSelect1" name="ville" onchange='document.forms["myform"].submit();'>
                 <option value="">Tous</option>
                 <?php
                 $sql = 'SELECT * FROM villes';
